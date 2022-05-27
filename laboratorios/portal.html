@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
+	<title>Captive Portal Login Page</title>
+	<link rel="stylesheet" href="assets_laboratorios/css/main.css" />
+</head>
+
+<body>
+<div id="content">
+	<div class="login-card">
+		<h1>IFF CORDEIRO</h1>
+		<img  src="assets_laboratorios/logo-laboratorio.png"  style="width:64px;height:64px;" /><br>
+		<h2>Bem Vindo(a)</h2>
+		<div id="error-message">
+			
+		</div>
+		
+		<form name="login_form" method="post" action="$PORTAL_ACTION$">
+			<input style=width:320px readonly="true" name="auth_user" value="internetlab"  type="hidden" > <br>
+			<input style=width:320px readonly="true" name="auth_pass" value="Internet@2018"  type="hidden" > <br>
+			
+			<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
+			<input name="zone" type="hidden" value="$PORTAL_ZONE$"/>
+			
+						
+			<div class="div_botao">
+				<input  type="submit" name="accept" class="login login-submit" value="Ativar Internet" id="login" >
+			</div>
+		</form>
+				
+		<br/>
+		<span> <i>2022 - Coordenação de TIC</i> </span>
+	</div>
+</div>
+
+
+
+</body>
+</html>

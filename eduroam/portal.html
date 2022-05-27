@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
+	<title>Captive Portal Login Page</title>
+	<link rel="stylesheet" href="assets_eduroam/css/main.css" />
+</head>
+
+<body>
+<div id="content">
+	<div class="login-card">
+		<h1>IFF CORDEIRO</h1>
+		<img  src="assets_eduroam/logo-eduroam.png"  style="width:40%;height:40%;" /><br>
+		<h2>Bem Vindo(a)</h2>
+		<div id="error-message">
+			
+		</div>
+		
+		<form name="login_form" method="post" action="$PORTAL_ACTION$">
+			<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
+			<input name="zone" type="hidden" value="$PORTAL_ZONE$">
+                
+						
+			<div class="div_botao">
+				<input  type="submit" name="accept" class="login login-submit" value="Ativar Internet" id="login" >
+			</div>
+		</form>
+				
+		<br/>
+		<span> <i>2022 - Coordenação de TIC</i> </span>
+	</div>
+</div>
+
+
+
+</body>
+</html>

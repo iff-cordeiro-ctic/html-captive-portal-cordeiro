@@ -1,0 +1,4 @@
+Caso a página personalizada necessite de arquivos adicionais como imagens, pastas, scripts,
+carregue-os via ferramenta como winscp para o pfSense no diretório:
+
+/usr/local/captiveportal
