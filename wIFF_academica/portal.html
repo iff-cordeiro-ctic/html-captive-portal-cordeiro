@@ -6,9 +6,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
-	<title>Captive Portal Login Page</title>
-	<link rel="stylesheet" href="assets_alunos/css/main.css" />
-	<link rel="stylesheet" href="assets_alunos/css/bootstrap.min.css" />
+	<title>Página de Login do Captive Portal</title>
+
+	<link rel="stylesheet" href="assets_servidores/css/main.css" />
+  
+	<link rel="stylesheet" href="assets_servidores/css/bootstrap.min.css" />
+  
+  
+	  <script src="assets_servidores/js/jquery-3.6.0.min.js"> </script>
+	  <script src="assets_servidores/js/bootstrap.min.js"> </script>
 </head>
 
 <body>
@@ -21,13 +27,25 @@
 			
 		</div>
 		
-		<form id="formulario" name="login_form" method="post" action="$PORTAL_ACTION$" autocomplete="on">
-			<input  name="auth_user" type="text" placeholder="cpf (somente números)" /> <br>
-			<input  name="auth_pass" type="password" placeholder="senha do Suap" id="senha" /> <br>
+		<form name="login_form" method="post" action="$PORTAL_ACTION$" autocomplete="on" id="form" >
+			<div class="">
+				<input  name="auth_user"  type="text" placeholder="cpf (somente números)" id="usuario"  required />
+
+			</div>
+
+			<div class="input-group mb">
+			<input  name="auth_pass" type="password" placeholder="senha do Suap" id="senha" class="form-control"  required  />
+				
+				<span class="input-group-text" style="height: 45px;">
+					<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_servidores/eye-open.png" style="width: 24px; height: 24px" id="imgEye" onclick="mostrarSenhaFunction()" />	
+				</span>
+			</div>
 			
-			<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_alunos/eye-open.png" style="width: 24px;" id="imgEye" onclick="mostrarSenhaFunction()" />	
 			
-			<br>							
+			<div class="form-check mb-3">
+				<input type="checkbox" class="form-check-input" id="checklembrar" name="checklembrar" checked >
+				<label class="form-check-label" for="checklembrar" >Lembrar CPF e senha?</label>
+			</div>
 
 			<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
 			<input name="zone" type="hidden" value="$PORTAL_ZONE$"/>
@@ -36,15 +54,13 @@
 				<input  type="submit" name="accept" class="login login-submit" value="Autenticar" id="login" >
 			</div>
 		</form>
+		
 		<div id="submit_spinner">
 			<div class="spinner-border" role="status" id="spinner" style="visibility: hidden">
 				<span class="visually-hidden">Loading...</span>
 			  </div>
 		</div>
-		
-
-		
-				
+	
 		<br/>
 		<span> <i>2022 - Coordenação de TIC</i> </span>
 	</div>
@@ -52,8 +68,11 @@
 
 
 
-
 <script>
+
+
+	document.getElementById("checklembrar").checked = true;
+
 	function mostrarSenhaFunction() {
 		var x = document.getElementById("senha");
 		var y = document.getElementById("exibirsenha");
@@ -61,29 +80,64 @@
 			x.type = "text";
 			//y.innerHTML = "Esconder Senha";
 			
-			document.getElementById("imgEye").src = "assets_alunos/eye-close.png";
+			document.getElementById("imgEye").src = "assets_servidores/eye-close.png";
 
 		} else {
 			x.type = "password";
 			//y.innerHTML = "Exibir Senha";
-			document.getElementById("imgEye").src = "assets_alunos/eye-open.png";
+			document.getElementById("imgEye").src = "assets_servidores/eye-open.png";
 		}
 	}
 
-	const formulario = document.getElementById('formulario');
-	formulario.onsubmit = submit;
+	$(document).ready( function() { // Wait until document is fully parsed
+	$("#form").on('submit', function(e){
 
+		// SPIN giratorio #######################
 
-
-	function submit(e){ 
 
 		//obter id do elemento do spinner
 		let spinner = document.getElementById("spinner");
 		// definir a div do spinner como visivel apos a submissao
 		spinner.style.visibility = 'visible'; //'hidden'
-	
+
+		// FIM SPIN giratorio ########################
+
+
 		
-	}
+			
+		//verificar se o checkbox esta marcado 
+
+		var usuario = document.getElementById("usuario").value;
+		var senha = document.getElementById("senha").value;
+
+		localStorage.setItem("usuario_captive", '');
+		localStorage.setItem("senha_captive", '');
+			
+
+		if (document.getElementById('checklembrar').checked) {
+			localStorage.setItem("usuario_captive", usuario);
+			localStorage.setItem("senha_captive", senha);
+			localStorage.setItem("check_lembrar", true);
+		} 
+		//fim -  verificar se o checkbox esta marcado 
+			
+
+		//document.cookie = "usuario="+usuario+"; expires=Thu, 18 Dec 2050 12:00:00 UTC";
+		//document.cookie = "senha="+senha+"; expires=Thu, 18 Dec 2050 12:00:00 UTC";
+
+
+	
+	});
+	})
+
+	document.getElementById("usuario").value = localStorage.getItem("usuario_captive") ;
+	document.getElementById("senha").value = localStorage.getItem("senha_captive");
+	
+
+	
+
+
+
 </script>
 
 

@@ -1,36 +1,31 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
-  <title>Página de Login do Captive Portal</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
+	<title>Página de Login do Captive Portal</title>
 
-  <link rel="stylesheet" href="assets_servidores/css/main.css" />
+<link rel="stylesheet" href="assets_servidores/css/main.css" />
 
-  <link rel="stylesheet" href="assets_servidores/css/bootstrap.min.css" />
-
-
-	<script src="assets_servidores/js/jquery-3.6.0.min.js"> </script>
-	<script src="assets_servidores/js/bootstrap.min.js"> </script>
+<link rel="stylesheet" href="assets_servidores/css/bootstrap.min.css" />
 
 
+  <script src="assets_servidores/js/jquery-3.6.0.min.js"> </script>
+  <script src="assets_servidores/js/bootstrap.min.js"> </script>
 </head>
 
 <body>
 <div id="content">
 	<div class="login-card">
-		<h1>IFF CORDEIRO</h1>
-		<img  src="assets_alunos/logo-estudante.png"  style="width:64px;height:64px;" /><br>
-		<h2>Bem Vindo(a) Aluno(a)</h2>
+	<h1>IFF CORDEIRO</h1>
+		<img  src="assets_servidores/logo-servidor.png"  style="width:64px;height:64px;" /><br>
+		<h2>Bem Vindo(a) Servidor(a)</h2>
 		<div id="error-message">
-			<center>
-				<p><font color="red">"$PORTAL_MESSAGE$"</font></p>
-				<p><font color="red">CPF ou senha incorretos</font></p>
-			</center>
-		</div> 
-
+			
+		</div>
 		
 		<form name="login_form" method="post" action="$PORTAL_ACTION$" autocomplete="on" id="form" >
 			<div class="">
@@ -62,15 +57,17 @@
 
 		<div id="submit_spinner">
 			<div class="spinner-border" role="status" id="spinner" style="visibility: hidden">
-				<span class="visually-hidden">Loading...</span>
+				<span class="visually-hidden">Carregando...</span>
 			  </div>
 		</div>
 		
-		
-		<br  />
+				
+		<br/>
 		<span> <i>2022 - Coordenação de TIC</i> </span>
 	</div>
 </div>
+
+
 
 
 <script>
@@ -144,7 +141,6 @@
 
 
 </script>
-
 
 
 </body>
