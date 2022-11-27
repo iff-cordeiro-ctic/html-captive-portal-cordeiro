@@ -20,23 +20,59 @@
 			
 		</div>
 		
-		<form name="login_form" method="post" action="$PORTAL_ACTION$">
-			<input style=width:320px readonly="true" name="auth_user" value="internetlab"  type="hidden" > <br>
-			<input style=width:320px readonly="true" name="auth_pass" value="Internet@2018"  type="hidden" > <br>
+		<div id="formulario">
+			<form name="login_form" method="post" action="$PORTAL_ACTION$">
+				<input style=width:320px readonly="true" name="auth_user" value="internetlab"  type="hidden" > <br>
+				<input style=width:320px readonly="true" name="auth_pass" value="Internet@2018"  type="hidden" > <br>
+				
+				<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
+				<input name="zone" type="hidden" value="$PORTAL_ZONE$"/>
+				
+							
+				<div class="div_botao">
+					<input  type="submit" name="accept" class="login login-submit" value="Ativar Internet" id="login" disabled="disabled"  >
+				</div>
+				
+				<label class="aceite_label" for="aceite">
+					<input type="checkbox" name="aceite" id="aceite" onchange="habilite(this)" />
+					Aceitar o termo de serviço
+					
+
+				</label>
+				
+
+			</form>
+
+		</div>
+
+		<div id="termos">
+
+			<h2>Termo de Serviço</h2>
+			As conexões  desta rede são constantemente monitoradas e estão sujeitas à verificação por parte da equipe de TIC do campus.
+			Entretanto, em nenhuma hipótese haverá acesso ao conteúdo das páginas acessadas. <b> O monitoramento refere-se tão somente aos endereços das webpages.</b>
 			
-			<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$"/>
-			<input name="zone" type="hidden" value="$PORTAL_ZONE$"/>
-			
-						
-			<div class="div_botao">
-				<input  type="submit" name="accept" class="login login-submit" value="Ativar Internet" id="login" >
-			</div>
-		</form>
+			Ao aceitar os termos de Serviço, concordo expressamente  com as condições apresentadas neste instrumento.
+
+
+		</div>
 				
 		<br/>
 		<span> <i>2022 - Coordenação de TIC</i> </span>
 	</div>
 </div>
+
+
+<script>
+
+function habilite(checkbox) {
+    if(checkbox.checked == true){
+		
+        document.getElementById("login").removeAttribute("disabled");
+    }else{
+        document.getElementById("login").setAttribute("disabled", "disabled");
+   }
+}
+</script>
 
 
 
