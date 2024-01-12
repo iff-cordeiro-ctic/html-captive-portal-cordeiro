@@ -8,13 +8,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge; text/html; charset=UTF-8">
 	<title>Página de Login do Captive Portal</title>
 
-	<link rel="stylesheet" href="assets_servidores/css/main.css" />
+	<link rel="stylesheet" href="assets_alunos/css/main.css" />
   
-	<link rel="stylesheet" href="assets_servidores/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets_alunos/css/bootstrap.min.css" />
   
   
-	  <script src="assets_servidores/js/jquery-3.6.0.min.js"> </script>
-	  <script src="assets_servidores/js/bootstrap.min.js"> </script>
+	  <script src="assets_alunos/js/jquery-3.6.0.min.js"> </script>
+	  <script src="assets_alunos/js/bootstrap.min.js"> </script>
 </head>
 
 <body>
@@ -29,15 +29,15 @@
 		
 		<form name="login_form" method="post" action="$PORTAL_ACTION$" autocomplete="on" id="form" >
 			<div class="">
-				<input  name="auth_user"  type="text" placeholder="cpf (somente números)" id="usuario"  required />
+				<input  name="auth_user"  type="number" placeholder="digite seu CPF"  id="usuario" pattern="[0-9]" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) && (this.value.length <= 10 ) "  required />
 
 			</div>
 
 			<div class="input-group mb">
-			<input  name="auth_pass" type="password" placeholder="senha do Suap" id="senha" class="form-control"  required  />
+			    <input  name="auth_pass" type="password" placeholder="senha do idIFF (SUAP)" id="senha" class="form-control"  required  />
 				
-				<span class="input-group-text" style="height: 45px;">
-					<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_servidores/eye-open.png" style="width: 24px; height: 24px" id="imgEye" onclick="mostrarSenhaFunction()" />	
+				<span class="input-group-text" style="height: 44px;">
+					<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_alunos/eye-open.png" style="width: 24px; height: 24px" id="imgEye" onclick="mostrarSenhaFunction()" />	
 				</span>
 			</div>
 			
@@ -80,12 +80,12 @@
 			x.type = "text";
 			//y.innerHTML = "Esconder Senha";
 			
-			document.getElementById("imgEye").src = "assets_servidores/eye-close.png";
+			document.getElementById("imgEye").src = "assets_alunos/eye-close.png";
 
 		} else {
 			x.type = "password";
 			//y.innerHTML = "Exibir Senha";
-			document.getElementById("imgEye").src = "assets_servidores/eye-open.png";
+			document.getElementById("imgEye").src = "assets_alunos/eye-open.png";
 		}
 	}
 

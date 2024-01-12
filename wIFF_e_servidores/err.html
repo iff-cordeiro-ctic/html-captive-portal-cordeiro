@@ -31,15 +31,15 @@
 		
 		<form name="login_form" method="post" action="$PORTAL_ACTION$" autocomplete="on" id="form" >
 			<div class="">
-				<input  name="auth_user"  type="text" placeholder="cpf (somente números)" id="usuario" required  />
+				<input  name="auth_user"  type="number" placeholder="digite seu CPF"  id="usuario" pattern="[0-9]" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) && (this.value.length <= 10 ) "  required />
 
 			</div>
 
 			<div class="input-group mb">
-			<input  name="auth_pass" type="password" placeholder="senha do Suap" id="senha" class="form-control"  required  />
+			    <input  name="auth_pass" type="password" placeholder="senha do idIFF (SUAP)" id="senha" class="form-control"  required  />
 				
-				<span class="input-group-text" style="height: 45px;">
-					<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_servidores/eye-open.png" style="width: 24px; height: 24px" id="imgEye" onclick="mostrarSenhaFunction()" />	
+				<span class="input-group-text" style="height: 44px;">
+					<img title="exibir/ocultar senha" alt="exibir/ocultar senha" src="assets_servidores/" style="width: 24px; height: 24px" id="imgEye" onclick="mostrarSenhaFunction()" />	
 				</span>
 			</div>
 			
